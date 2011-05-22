@@ -35,7 +35,7 @@ describe "LayoutLinks" do
     response.should have_selector('title', :content => "Contact")
     click_link "Home"
     response.should have_selector('title', :content => "Home")
-    click_link "Sign up now niggaa!"
+    click_link "Sign up now!"
     response.should have_selector('title', :content => "Sign Up")
   end
 end
