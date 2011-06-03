@@ -52,10 +52,7 @@ describe "Users" do
     describe "success" do
       it "should sign a user in and out" do
         user = Factory(:user)
-        visit signin_path
-        fill_in :email,         :with => user.email
-        fill_in :password,      :with => user.password
-        click_button
+        intergration_sign_in(user)
         controller.should be_signed_in
         click_link "Sign out"
         controller.should_not be_signed_in
@@ -64,4 +61,11 @@ describe "Users" do
   end      
 end
     
+#   it "should sign a user out" do
+ #    test_sign_in(Factory(:user))
+#     delete :destroy
+#     controller.should_not be_signed_in
+#     response.should redirect_to(root_path)
+#   end
+# end
         
