@@ -70,3 +70,14 @@ describe "LayoutLinks" do
     end                                     
   end                                                                                  
 end
+
+
+#  GET the users page as an admin 
+#  response.should have_selector('title', :content => "Delete")
+# Get the users page as a non-admin
+#  response.should_not have_selector('title', :content => "Delete")
+# questions 
+#  how to make it look at the users links to check for the delete selector
+#  how to make it check all of the users on the links for that selector 
+#  this in both cases of admin or non-admin
+

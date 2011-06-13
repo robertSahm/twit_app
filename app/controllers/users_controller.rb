@@ -11,25 +11,34 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(:page => params[:page])
     @title = @user.name
   end
 
   def new
-    @user = User.new
-    @title ="Sign Up"
+    if signed_in?
+      redirect_to root_path
+    else  
+      @user = User.new
+      @title ="Sign Up"
+    end  
   end
   
   def create
-    @user = User.new(params[:user])
-    if @user.save
-      sign_in @user
-      flash[:success] = "Welcome to the twit app!"
-      redirect_to @user
+    if signed_in?
+      redirect_to root_path
     else
-      @title = "Sign up"
-      @user.password = nil
-      @user.password_confirmation = nil
-      render 'new'
+        @user = User.new(params[:user])
+        if @user.save
+          sign_in @user
+          flash[:success] = "Welcome to the twit app!"
+          redirect_to @user
+        else
+          @title = "Sign up"
+          @user.password = nil
+          @user.password_confirmation = nil
+          render 'new'
+    end
     end
   end
   
@@ -54,11 +63,7 @@ class UsersController < ApplicationController
   end  
   
   private
-  
-    def authenticate
-      deny_access unless signed_in?
-    end  
-    
+
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
