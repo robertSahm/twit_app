@@ -70,9 +70,21 @@ class User < ActiveRecord::Base
   def unfollow!(followed)
     relationships.find_by_followed_id(followed).destroy 
   end   
-    
+  
 
-      
+  def send_password_reset 
+    generate_token(:password_reset_token) 
+    self.password_reset_sent_at = Time.now.utc
+    save!
+    UserMailer.password_reset(self).deliver
+  end  
+
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.base64
+    end while User.exists?(column => self[column])
+  end
+   
   private
     
     def encrypt_password
@@ -91,6 +103,7 @@ class User < ActiveRecord::Base
     def secure_hash(string)
       Digest::SHA2.hexdigest(string)
     end
-      
+    
+   
       
 end

@@ -2,7 +2,7 @@
 	<table class="front" summary="For signed-in users">
 		<tr>
 			<td class="main">
-				<h1 class="micropost">What's up?</h1>
+				<h1 class="micropost">Gimme the 411!</h1>
 				<%= render 'shared/micropost_form' %>
 				<%= render 'shared/feed' %>
 			</td>
@@ -13,11 +13,13 @@
 		</tr>
 	</table>
 <% else %>
-	<h1>Twit App</h>
+	<h1>Twit App <br><i>(pages/home signed_in?=false)
+		also known as signout_path</i></h>
 	<p>
-		This is the <%= @title %> page for 
-		<a href="http://www.discobiscuits.com/">the Disco Biscuits</a>
-		Twit App
-	</p>
+		This is the <%= @title %> page for when signed_in? = false 
+		You could think of this as the newbie greeting page
+	<!-->	<a href="http://www.discobiscuits.com/">the Disco Biscuits</a>
+		Twit App -->
+ 	</p> 
     <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>	
 <% end %>				

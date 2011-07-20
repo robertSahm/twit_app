@@ -3,16 +3,16 @@
 }
 
 body {
-	background: #cff;
+	background: #black;
 }
 
 header {
-	padding-top: 20px;
+	padding-top: 2px;
 }
 
 header img {
-	padding: 4em;
-	background: #fff;
+	padding: 1em;
+	background: #lightblue;
 }
 section {
 	margin-top: lem;
@@ -49,13 +49,13 @@ nav {
 
 nav {
 	background-color: white;
-	padding: 0 0.7em;
+	padding: 2 2.7em;
 	white-space: nowrap;
 }
 
 nav ul {
-	margin: 0;
-	padding: 0;
+	margin: 10px;
+	padding: 2px;
 }
 
 nav ul li {
@@ -85,7 +85,7 @@ a.signup_button {
 	display: block; 
 	text-align: center;
 	width: 300px; 
-	color: #fff; 
+	color: #yellow; 
 	background: #006400; 
 /*	font-size: 150%; */
 	font-weight: bold;
@@ -120,7 +120,7 @@ table.profile {
 }
 
 td.main {
-	width: 70%;
+	width: 60%;
 	padding: 1em;
 }
 
@@ -128,7 +128,7 @@ td.sidebar {
 	width: 30%;
 	padding: 1em;
 	vertical-align: top;
-	background: #ffc;
+	background: #lightblue;
 }
 
 .profile img.gravatar {
@@ -182,6 +182,7 @@ div.field, div.actions {
 }
 
 ul.users {
+	color: red;
 	margin-top: 1em;
 }
 
@@ -194,7 +195,7 @@ h1.micropost {
 }
 
 table.microposts {
-	margin-top: 1em;
+	margin-top: 2em;
 }
 
 table.microposts tr {
@@ -202,21 +203,28 @@ table.microposts tr {
 }
 
 table.microposts tr td.gravatar {
-	border-top: 1px solid #ccc;
+	border-top: 4px solid #orange;
 	vertical-align: top;
 	width: 50px;
 }
 
 table.microposts tr td.micropost {
-	border-top: 1px solid #ccc;
+	border-top: 2px solid #red;
 	vertical-align: top;
-	padding-top: 10px;
+	padding-top: 4px;
+}
+
+table.microposts tr td.micropost span.content {
+	display: block;
+	font-weight: bold;
+	font-size: 100%;
+	color: green;
 }
 
 table.microposts tr td.micropost span.timestamp {
 	display: block;
-	font-size: 50%;
-	color: #666;
+	font-size: 85%;
+	color: purple;
 }
 
 div.user_info img {
@@ -232,7 +240,7 @@ div.user_info span.user_name {
 }
 
 div.user_info span.microposts {
-	font-size: 80%;
+	font-size: 100%;
 }
 
 form.new_micropost {
